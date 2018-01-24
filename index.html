@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href='normalize.css' type ='text/css' rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <title></title>
+  </head>
+  <body>
+     <nav>
+<h1>What does CPT have to offer you?</h1>
+<ul>
+  <a class='fade'><li >Wine tasting </li></a>
+  <a class='fade1'><li>Sky adventure</li></a>
+  <a class='fade2'><li>Aquarium </li></a>
+  <a class='homeRefresh'> <li>Home</li> </a>
+
+</ul>
+</nav>
+
+<div class="container slideoutS slideoutA">
+
+    <div id='wine'class="col1 floatLeft" >
+       <img src="images/Fran.jpg" alt="">
+       <h3 class='wine0'></h3>
+       <p class='wines0'>Location:</p>
+       <p class='firstr0'></p>
+   </div>
+   <div class="col1 floatLeft">
+      <img class='img2'src="images/55.jpg" alt="">
+      <h3 class='wine1'></h3>
+      <p class='wines1'>Location:</p>
+       <p class='firstr1'></p>
+   </div>
+   <div class="col1 floatLeft">
+      <img src="images/wtct-cape-town-wine-tour-8.jpg" alt="">
+      <h3 class='wine2'></h3>
+      <p class='wines2'>Location:</p>
+       <p class='firstr2'></p>
+   </div>
+</div>
+<br>
+
+<div class="container slideoutW slideoutA">
+<!-- sky--->
+
+  <div class="col1  floatLeft" >
+    <img src="images/fly.jpeg" alt="">
+    <h3 class='para0'></h3>
+    <p class='paras0'></p>
+    <p>Rating <i class="fa fa-star" aria-hidden="true"></i></p>
+  </div>
+
+  <div class="col1 floatLeft">
+    <img class='img2'src="images/G0015455.jpg" alt="">
+    <h3 class='para1'></h3>
+    <p class='paras1'></p>
+  </div>
+
+  <div class="col1 floatLeft">
+     <img src="images/sky.jpg" alt="">
+     <h3 class='para2'></h3>
+     <p class='paras2'></p>
+  </div>
+
+</div>
+
+<!--- ice cream-->
+<div class="container slideoutW slideoutS">
+
+  <div class="col1 floatLeft" >
+    <img src="images/aquarium_2.jpg" alt="">
+    <h3 class='ocean0'></h3>
+    <p class='oceans0'></p>
+  </div>
+
+  <div class="col1 floatLeft">
+    <img class='img2'src="images/Penguin-feeding-1.jpg" alt="">
+    <h3 class='ocean1'></h3>
+    <p class='oceans1'></p>
+  </div>
+
+  <div class="col1 floatLeft">
+     <img src="images/images.jpeg" alt="">
+     <h3 class='ocean2'></h3>
+     <p class='oceans2'></p>
+  </div>
+
+</div>
+  </body>
+<script type="text/javascript">
+$(document).ready(function() {
+
+function Items(data) {
+  this.id = data.id;
+  this.todo=data.todo;
+  this.name = data.name;
+  this.location = data.location;
+  this.hours = data.hours;
+  this.phone = data.phone
+  this.apply = function() {
+    console.log('APPLYING');
+  }
+}
+
+  let actinCape= [{
+      id: 0,
+      name: ["Beau Constantia","Marianne Wine Estate","Avontuur Wine Estate"],
+      location:["1043 Constantia Main Rd, Glen Alpine, Constantia, 7806","Valley Road on the R44 Klapmuts Stellenbosch ","R44 Between Stellenbosch & Somerset West"],
+      hours: ["11AM–6PM","10am - 4.30pm","10am - 7pm"],
+      phone:["021 794 8632"," +27(0)21 876 8820"," +27 (0)21 874 9041"],
+    },
+    {
+      id: 1,
+      name: ["Paragliding","Tandem Paragliding","sky diving"],
+      location:["Signal Hill","Signal Hill","not Signal Hill"],
+      hours:"8am-5pm",
+      phone:"+27(0)82 851 7119"
+    },
+    {
+      id: 2,
+    name: "Two Oceans Aquarium",
+    todo:["Explore","feed the Penguins","go diving"],
+    location:"Dock Rd, V & A Waterfront",
+    hours:[" 9:30AM–6PM","11h30","10AM-4PM"],
+    phone:"021 418 3823"
+
+    }
+
+  ];
+
+    var acts = new Items(actinCape[0]);
+    var paraActs= new  Items(actinCape[1]);
+    var aqur = new Items(actinCape[2]);
+
+console.log(acts.name)
+
+for (var i = 0; i < acts.name.length; i++) {
+  $('.wine'+i).append(acts.name[i])
+console.log(acts.hours[i])
+  $('.wines'+i).append(acts.location[i]+'<br> Hours: '+acts.hours[i]+'<br> Phone: '+acts.phone[i]);
+
+  $('.para'+i).append(paraActs.name[i]);
+  $('.paras'+i).append('Location: '+paraActs.location[i]+'<br> Hours: '+paraActs.hours+'<br> Phone: '+paraActs.phone);
+
+  $('.ocean'+i).append(aqur.name);
+  $('.oceans'+i).append('You can '+aqur.todo[i]+'<br> Location: '+aqur.location+' <br> Hours: '+aqur.hours[i]+'<br> Phone: '+aqur.phone)
+}
+
+$('.fade').click(function(){
+  $('.fade1 , .fade2').css({'color':'black'})
+    $('.slideoutS').fadeIn('slow',function(){
+      });
+    $('.fade').css({'color':'red'})
+    $('.slideoutW ').fadeOut('slow',function(){
+
+    })
+  })
+
+$('.fade1').click(function(){
+  $('.fade,.fade2').css({'color':'black'})
+  $('.slideoutW').fadeIn('slow',function(){
+});
+$('.slideoutS').fadeOut('slow',function(){
+});
+  $('.fade1').css({'color':'red'})
+
+});
+
+$('.fade2').click(function(){
+  $('.fade1,.fade').css({'color':'black'})
+  $('.slideoutS').fadeIn('fast',function(){
+  });
+  $('.slideoutA').fadeOut('slow',function(){
+  });
+$('.fade2').css({'color':'red'})
+  })
+
+  $('.homeRefresh').click(function(){
+    location.reload()
+  })
+
+//***********************
+//Revie
+//***********************
+
+let quotes_url='http://127.0.0.1:8082/revie'
+let reviewlist
+$.ajax({
+     url:quotes_url,
+     dataType: 'json',
+     success:function(result){
+if (result){
+  reviewlist= result
+console.log(reviewlist[0])
+
+for (var e = 0; e< reviewlist.length; e++) {
+$('.firstr'+e).append(reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+
+
+for (var q = 0; q< reviewlist[e].rate; q++) {
+  $('.firstr'+e).append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+  }
+
+
+
+}
+
+
+
+}
+
+
+
+}
+
+});
+});
+
+
+</script>
