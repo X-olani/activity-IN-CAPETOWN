@@ -1,0 +1,24 @@
+{
+  "act": [{
+      "id": 0,
+      "name": "Beau Constantia",
+      "location":"1043 Constantia Main Rd, Glen Alpine, Constantia, 7806",
+      "hours": "11AM–6PM",
+      "phone":"021 794 8632"
+    },
+    {
+      "id": 1,
+      "name": "HTML5",
+      "location": 10,
+      "hours": ["html", "css"],
+      "phone":""
+    },
+    {
+      "id": 2,
+      "name": "HTML5",
+      "location": 10,
+      "hours": ["html", "css"],
+      "phone":""
+    }
+  ]
+}
