@@ -1,8 +1,12 @@
 nav{width: 100%;
 height: 70px;
 background-color: lightgray;
+position: fixed;
+z-index: 2;
+margin-top: -10px
 
 }
+form{margin-top: 42px;}
 
 h1{text-align: center;
 margin-top: 2px;
@@ -25,7 +29,8 @@ height: 248px;
 height: 40px}
 .container{ width: 100%;
   height: 600px;
-  margin-top: 10px
+  margin-top: 10px;
+
 }
 .col1{width: 32%;
   height:497px;
@@ -34,7 +39,18 @@ margin-right: 10px;
 position: static;
 background-color: #f1e697}
 
+.holder{width: 100%;
+  height:112px;
+  overflow: scroll;}
 
+.reAdd{width: 40%;
+  margin-left: 31%;
+  margin-top: 897px;
+  position: absolute;
+height:189px;
+border:2px solid black;
+
+background-color: lightgray}
 
 .floatRight{float:right;}
 .floatLeft{float:left;}
