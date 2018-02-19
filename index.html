@@ -17,29 +17,62 @@
   <a class='fade1'><li>Sky adventure</li></a>
   <a class='fade2'><li>Aquarium </li></a>
   <a class='homeRefresh'> <li>Home</li> </a>
+  <a class='AddReview'> Add Review</a>
 
 </ul>
 </nav>
+<div class="reAdd">
+  <form action = "http://127.0.0.1:8082/" method = "POST">
+       Reviwing: <select name='where'>
+         <option value="Beau Constantia">Beau Constantia</option>
+         <option value="Marianne WineEstate">Marianne WineEstate</option>
+         <option value=" Wine Estate"> Wine Estate</option>
+         <option value="Paragliding">Paragliding</option>
+         <option value="Tandem Paragliding">Tandem Paragliding</option>
+         <option value="sky diving">sky diving</option>
+         <option value="Two Oceans Aquarium">Two Oceans Aquarium</option>
+         <option value="Penguins">Penguins</option>
+         <option value="Shark Diving">Shark Diving</option>
 
+
+       </select>
+       Name:<input type="text" name="author" value="">
+       <br>
+       Input review<textarea name='quote' style='width:500px; height:50px'></textarea>
+       <br />
+       rate <select name="rate">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+         <option value="5">5</option>
+
+      </select>
+      <br>
+       <input class='okaysend'type = "submit" value = "Add review" />
+    </form>
+
+</div>
 <div class="container slideoutS slideoutA">
 
     <div id='wine'class="col1 floatLeft" >
        <img src="images/Fran.jpg" alt="">
        <h3 class='wine0'></h3>
        <p class='wines0'>Location:</p>
-       <p class='firstr0'></p>
+       <p class='holder BeauConstantia'></p>
+
    </div>
    <div class="col1 floatLeft">
       <img class='img2'src="images/55.jpg" alt="">
       <h3 class='wine1'></h3>
       <p class='wines1'>Location:</p>
-       <p class='firstr1'></p>
+       <p class='holder MarianneWineEstate'></p>
    </div>
    <div class="col1 floatLeft">
       <img src="images/wtct-cape-town-wine-tour-8.jpg" alt="">
       <h3 class='wine2'></h3>
       <p class='wines2'>Location:</p>
-       <p class='firstr2'></p>
+       <p class='holder AvontuurWineEstate'></p>
    </div>
 </div>
 <br>
@@ -51,22 +84,26 @@
     <img src="images/fly.jpeg" alt="">
     <h3 class='para0'></h3>
     <p class='paras0'></p>
-    <p>Rating <i class="fa fa-star" aria-hidden="true"></i></p>
+    <p class='holder Paragliding  '></p>
+    <p> <i class="fa fa-star" aria-hidden="true"></i></p>
   </div>
 
   <div class="col1 floatLeft">
     <img class='img2'src="images/G0015455.jpg" alt="">
     <h3 class='para1'></h3>
-    <p class='paras1'></p>
+      <p class='paras1'></p>
+    <p class=' holder TandemParagliding'></p>
   </div>
 
   <div class="col1 floatLeft">
      <img src="images/sky.jpg" alt="">
      <h3 class='para2'></h3>
-     <p class='paras2'></p>
+       <p class='paras2'></p>
+     <p class='holder skydiving'></p>
   </div>
 
 </div>
+
 
 <!--- ice cream-->
 <div class="container slideoutW slideoutS">
@@ -75,18 +112,21 @@
     <img src="images/aquarium_2.jpg" alt="">
     <h3 class='ocean0'></h3>
     <p class='oceans0'></p>
+    <p class='holder TwoOceansAquarium'></p>
   </div>
 
   <div class="col1 floatLeft">
     <img class='img2'src="images/Penguin-feeding-1.jpg" alt="">
     <h3 class='ocean1'></h3>
     <p class='oceans1'></p>
+    <p class='holder Penguins'></p>
   </div>
 
   <div class="col1 floatLeft">
      <img src="images/images.jpeg" alt="">
      <h3 class='ocean2'></h3>
      <p class='oceans2'></p>
+     <p class='holder Sharkdiving'></p>
   </div>
 
 </div>
@@ -115,14 +155,14 @@ function Items(data) {
     },
     {
       id: 1,
-      name: ["Paragliding","Tandem Paragliding","sky diving"],
+      name: ["Paragliding","Tandem Paragliding","Sky Diving"],
       location:["Signal Hill","Signal Hill","not Signal Hill"],
       hours:"8am-5pm",
       phone:"+27(0)82 851 7119"
     },
     {
       id: 2,
-    name: "Two Oceans Aquarium",
+    name: ["Two Oceans Aquarium",'Penguins','Shark Diving'],
     todo:["Explore","feed the Penguins","go diving"],
     location:"Dock Rd, V & A Waterfront",
     hours:[" 9:30AM–6PM","11h30","10AM-4PM"],
@@ -146,7 +186,7 @@ console.log(acts.hours[i])
   $('.para'+i).append(paraActs.name[i]);
   $('.paras'+i).append('Location: '+paraActs.location[i]+'<br> Hours: '+paraActs.hours+'<br> Phone: '+paraActs.phone);
 
-  $('.ocean'+i).append(aqur.name);
+  $('.ocean'+i).append(aqur.name[i]);
   $('.oceans'+i).append('You can '+aqur.todo[i]+'<br> Location: '+aqur.location+' <br> Hours: '+aqur.hours[i]+'<br> Phone: '+aqur.phone)
 }
 
@@ -183,6 +223,21 @@ $('.fade2').css({'color':'red'})
     location.reload()
   })
 
+$('.reAdd').hide()
+
+$('.AddReview').click(function(){
+  $('.reAdd').show()
+  });
+  $(".AddReview").click(function (){
+    $('html, body').animate({
+       scrollTop: $(".reAdd").offset().top
+   }, 2000);
+
+});
+
+$('#okay').click(function(){
+    location.reload()
+})
 //***********************
 //Revie
 //***********************
@@ -198,7 +253,73 @@ if (result){
 console.log(reviewlist[0])
 
 for (var e = 0; e< reviewlist.length; e++) {
-$('.firstr'+e).append(reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+  if (reviewlist[e].where =='Beau Constantia' ){
+    $('.BeauConstantia').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+    for (var q = 0; q< reviewlist[e].rate; q++) {
+      $('.BeauConstantia').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+      }
+  }
+  if (reviewlist[e].where =='Marianne Wine Estate' ){
+    $('.MarianneWineEstate').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+    for (var q = 0; q< reviewlist[e].rate; q++) {
+      $('.MarianneWineEstate').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+      }
+
+
+
+  }
+  if (reviewlist[e].where =='Avontuur Wine Estate' ){
+    $('.AvontuurWineEstate').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+    for (var q = 0; q< reviewlist[e].rate; q++) {
+      $('.AvontuurWineEstate').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+      }
+    }
+  if (reviewlist[e].where =='Avontuur Wine Estate' ){
+    $('.AvontuurWineEstate').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+    for (var q = 0; q< reviewlist[e].rate; q++) {
+      $('.AvontuurWineEstate').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+      }
+    }
+    if (reviewlist[e].where =='Paragliding' ){
+      $('.Paragliding').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+      for (var q = 0; q< reviewlist[e].rate; q++) {
+        $('.Paragliding').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+        }
+      }
+      if (reviewlist[e].where =='Tandem Paragliding' ){
+        $('.TandemParagliding').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+        for (var q = 0; q< reviewlist[e].rate; q++) {
+          $('.TandemParagliding').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+          }
+        }
+        if (reviewlist[e].where =='sky diving' ){
+          $('.skydiving').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+          for (var q = 0; q< reviewlist[e].rate; q++) {
+            $('.skydiving').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+            }
+          }
+          if (reviewlist[e].where =='Two Oceans Aquarium' ){
+            $('.Two Oceans Aquarium').append('<br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+            for (var q = 0; q< reviewlist[e].rate; q++) {
+              $('.Two Oceans Aquarium').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+              }
+            }
+            if (reviewlist[e].where =='Penguins' ){
+              $('.Penguins').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+              for (var q = 0; q< reviewlist[e].rate; q++) {
+                $('.Penguins').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+                }
+              }if (reviewlist[e].where =='Shark Diving' ){
+                $('.Sharkdiving').append('<hr><br>'+reviewlist[e].author+'<br>'+reviewlist[e].quote+'<br> <br>')
+                for (var q = 0; q< reviewlist[e].rate; q++) {
+                  $('.Sharkdiving').append("<img id='stars' src='images/star-png-star-png-image-2156.png' alt=''>")
+                  }
+                }
+
+
+
+
+
 
 
 for (var q = 0; q< reviewlist[e].rate; q++) {
