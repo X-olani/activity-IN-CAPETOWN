@@ -34,19 +34,21 @@ app.post('/qte', urlencodedParser, function (req, res) {
     rate:req.body.rate,
   });
 });
+app.post('/', urlencodedParser, function (req, res) {
 
-  //  var newReview = new Reviews ({
-  //  author: 'Mike Q',
-//   quote: 'its okay',
-  // rate: 3
-//  });
+   var newReview = new Reviews ({
+     where:req.body.where,
+   author:req.body.author,
+ quote: req.body.quote,
+ rate:req.body.rate,
+});
 
-//  newReview.save(function(err) {
-  //   if (err) throw err;
+ newReview.save(function(err) {
+   if (err) throw err;
 
-  //  console.log('User created!');
-   //});
-
+   console.log('User created!');
+   });
+});
 
    app.get('/revie', function(req,res){
  Reviews.find({}, function(err, quotes){
